@@ -1,5 +1,6 @@
 'use strict'
 const log = require('logger')
+const mongo = require('mongoclient')
 const fetch = require('./fetch')
 let MONGO_API_URI = process.env.MONGO_API_URI, mongoReady
 const apiRequest = async(uri, collection, query, data)=>{
@@ -28,8 +29,9 @@ module.exports.set = async(collection, query, data)=>{
   return await apiRequest('set', collection, query, data)
 }
 module.exports.find = async(collection, query, projection)=>{
-  return await apiRequest('find', collection, query, data)
+  return await apiRequest('find', collection, query, projection)
 }
 module.exports.status = ()=>{
-  return mongoReady
+  let status = mongo.status()
+  if(status) return mongoReady
 }

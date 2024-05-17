@@ -6,12 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "update": "chmod a+x updategitdependency.sh && ./updategitdependency.sh",
-    "build": "chmod a+x buildtestimage.sh && ./buildtestimage.sh c3pobot/ga-archive"
+    "build": "chmod a+x buildtestimage.sh && ./buildtestimage.sh c3pobot/ga-archive",
+    "prod": "chmod a+x buildprodimage.sh && ./buildprodimage.sh c3pobot/ga-archive"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "async": "^3.2.5",
+    "bottleneck": "^2.19.5",
     "logger": "github:c3pobot/logger",
     "minio": "^8.0.0",
     "mongoclient": "github:c3pobot/mongoclient",
